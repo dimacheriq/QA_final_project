@@ -36,17 +36,19 @@ public class DriverSetUp {
     }
 
     private static WebDriver getInstance(){
-        if(driver == null){
-            try {
-                driver = setUpDriver();
-            } catch (Exception e){
-                e.printStackTrace();
-            }
+             if (driver==null)
+
+        try {
+            driver = setUpDriver();
+        } catch (Exception e){
+            e.printStackTrace();
         }return driver;
+
     }
 
     public static WebDriver startChromeDriver(){
-        driver = getInstance();
+        driver=getInstance();
+
         return driver;
     }
 }

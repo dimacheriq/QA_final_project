@@ -17,7 +17,7 @@ public class BasePage {
     static final Logger logger = LoggerFactory.getLogger(BasePage.class);
 
     public BasePage(WebDriver driver) {
-        this.driver = driver;
+        BasePage.driver = driver;
         action = new ActionClass(driver);
         assertions = new AssertionsClass(driver);
         elements = new ElementsClass(driver);

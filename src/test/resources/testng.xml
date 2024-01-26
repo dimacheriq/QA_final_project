@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="AllTests Suite">
-    <test name="AllTests">
+<suite name="AllTests Suite" parallel="tests" thread-count="3">
+    <test name="Auto">
         <classes>
-
             <class name="AutoPageTest"/>
+        </classes>
+    </test>
+
+    <test name="Map">
+        <classes>
             <class name="MapTest"/>
         </classes>
+    </test>
+
+    <test name="Intro">
+         <classes>
+             <class name="SaveTest"/>
+         </classes>
     </test>
 </suite>

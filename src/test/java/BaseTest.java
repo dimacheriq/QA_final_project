@@ -4,19 +4,18 @@ import functions.AssertionsClass;
 import functions.ElementsClass;
 import functions.WaitersClass;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Listeners;
-import pages.AutoPage;
-import pages.BasePage;
-import pages.ClickerPage;
-import pages.MapPage;
+import org.testng.annotations.*;
+import pages.*;
 import utils.TestResultListeners;
 
 @Listeners(TestResultListeners.class)
 public class BaseTest {
+  @BeforeSuite
+  public void startDriver() {
+      driver = DriverSetUp.startChromeDriver();
+  }
 
-    protected WebDriver driver = DriverSetUp.startChromeDriver();
+    static WebDriver driver = DriverSetUp.startChromeDriver();
 
     protected ActionClass action = new ActionClass(driver);
     protected AssertionsClass assertions = new AssertionsClass(driver);
@@ -27,14 +26,9 @@ public class BaseTest {
     protected ClickerPage clickerPage = new ClickerPage(driver);
     protected AutoPage autoPage = new AutoPage(driver);
     protected MapPage mapPage = new MapPage(driver);
+    protected SavePage savePage = new SavePage(driver);
 
-    @BeforeSuite
-    public void startDriver() {
-        driver = DriverSetUp.startChromeDriver();
-    }
 
     @AfterSuite
-    public void closeDriver() {
-        driver.quit();
-    }
+    public void closeDriver() {driver.quit();}
 }
